@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifokorlar ro‘yxati</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5c6bc0;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        strong {
+            font-size: 18px;
+            color: #28a745;
+        }
+
+        .doctor-details {
+            margin-top: 10px;
+        }
+
+        .btn-contact {
+            background-color: #5c6bc0;
+            color: white;
+            padding: 5px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .btn-contact:hover {
+            background-color: #3f4fa1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            li {
+                padding: 10px;
+            }
+
+            .doctor-details {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Shifokorlar ro‘yxati</h1>
+    <ul>
+        {% for doctor in doctors %}
+            <li>
+                <strong>{{ doctor.name }}</strong><br>
+                <div class="doctor-details">
+                    Mutaxassislik: {{ doctor.specialization }}<br>
+                    Tajriba: {{ doctor.experience }} yillik<br>
+                    Telefon: {{ doctor.phone }}
+                </div>
+                <a href="tel:{{ doctor.phone }}" class="btn-contact" onclick="trackClick('{{ doctor.name }}')">Kontakt qilish</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        // JavaScript functionality to track user clicks on the contact button
+        function trackClick(doctorName) {
+            console.log("Kontakt tugmasi bosildi:", doctorName);
+            alert("Siz " + doctorName + " bilan bog'lanmoqchisiz.");
+        }
+    </script>
+
+</body>
+</html>

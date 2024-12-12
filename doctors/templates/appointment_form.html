@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultatsiyaga Yozilish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5c6bc0;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Konsultatsiyaga Yozilish</h1>
+
+    <div class="form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Ismingiz</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Elektron pochta</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="doctor">Shifokor tanlash</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="doctor1">Shifokor 1</option>
+                    <option value="doctor2">Shifokor 2</option>
+                    <option value="doctor3">Shifokor 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Savol yoki sharh (ixtiyoriy)</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn">Yozilish</button>
+        </form>
+    </div>
+
+</body>
+</html>
